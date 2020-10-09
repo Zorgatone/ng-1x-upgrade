@@ -1,5 +1,7 @@
 <main>
   <form>
+    <input ng-model="$ctrl.todoName" placeholder="Insert todo" type="text" />
+    <input ng-click="$ctrl.submit()" type="button" value="Submit" />
     <div ng-repeat="todo in $ctrl.todos track by todo.name" type="checkbox">
       <input
         name="{{todo.name}}"
