@@ -1,1 +1,14 @@
-<main><button ng-click="$ctrl.onClick($event)">Hello</button> {{$ctrl.user}} {{$ctrl.count}}!</main>
+<main>
+  <form>
+    <div ng-repeat="todo in $ctrl.todos track by todo.name" type="checkbox">
+      <input
+        name="{{todo.name}}"
+        ng-change="$ctrl.change(todo)"
+        ng-model-options="{getterSetter: true}"
+        ng-model="todo.done"
+        type="checkbox"
+      />
+      {{todo.name}}
+    </div>
+  </form>
+</main>

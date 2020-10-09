@@ -1,26 +1,23 @@
 import { IController } from "angular";
+import { Todo } from "../../model";
 
 import buttonTemplate from "./app.template.html";
 
 export const componentName = "myApp";
 
 export const componentClass = class App implements IController {
-  private user: string;
-  private count: number;
+  private todos: Todo[];
 
   public constructor() {
-    this.count = 0;
-    this.user = "world";
+    this.todos = [new Todo("Hello"), new Todo("World!")];
   }
 
   public $onInit(): void {
-    console.log("Hello " + this.user);
+    this.todos[1]?.done?.(true);
   }
 
-  public onClick(event: JQuery.Event): void {
-    console.log("event:", event);
-
-    this.count += 1;
+  public change(todo: Todo) {
+    console.log(todo);
   }
 };
 
